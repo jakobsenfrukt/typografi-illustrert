@@ -3,19 +3,18 @@ import {format} from 'date-fns'
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Term',
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      title: 'Typografisk begrep'
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'Slug er obligatorisk og blir endelsen på URLen som går direkte til denne begrepssiden.',
       options: {
         source: 'title',
         maxLength: 96
@@ -24,48 +23,39 @@ export default {
     {
       name: 'publishedAt',
       type: 'datetime',
-      title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      title: 'Publisert'
     },
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image'
+      title: 'Hovedbilde'
     },
     {
-      name: 'excerpt',
-      type: 'excerptPortableText',
-      title: 'Excerpt',
+      name: 'lead',
+      type: 'text',
+      title: 'Ingress',
       description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
+        'Brukes på oversiktssiden, når siden vises i Google-søk, og når den deles i sosiale medier.'
     },
     {
-      name: 'authors',
-      title: 'Authors',
+      name: 'definition',
+      type: 'text',
+      title: 'Definisjon'
+    },
+    {
+      name: 'designers',
+      title: 'Designere',
       type: 'array',
       of: [
         {
-          type: 'authorReference'
-        }
-      ]
-    },
-    {
-      name: 'categories',
-      type: 'array',
-      title: 'Categories',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'category'
-          }
+          type: 'designerReference'
         }
       ]
     },
     {
       name: 'body',
       type: 'bodyPortableText',
-      title: 'Body'
+      title: 'Designer om begrepet'
     }
   ],
   orderings: [

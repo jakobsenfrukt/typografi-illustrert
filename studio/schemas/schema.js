@@ -5,17 +5,15 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
-import author from './documents/author'
-import category from './documents/category'
+import designer from './documents/designer'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
-import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
-import authorReference from './objects/authorReference'
+import designerReference from './objects/designerReference'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,13 +26,11 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
-    category,
-    author,
+    designer,
     mainImage,
-    authorReference,
+    designerReference,
     bodyPortableText,
-    bioPortableText,
-    excerptPortableText
+    bioPortableText
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    {{ $page.post.designers[0] }}
     <div class="post-title">
       <h1 class="post-title__text">{{ $page.post.title }}</h1>
 
@@ -25,12 +26,6 @@
         <post-tags :post="$page.post" v-if="$page.post" />
       </div>
     </div>
-
-    <div class="post-comments">
-      <!-- Add comment widgets here -->
-    </div>
-
-    <author-card class="post-author" />
   </Layout>
 </template>
 
@@ -38,11 +33,11 @@
 import BlockContent from '~/components/BlockContent'
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
-import AuthorCard from '~/components/AuthorCard'
+import DesignerCard from '~/components/DesignerCard'
 
 export default {
   components: {
-    AuthorCard,
+    DesignerCard,
     PostMeta,
     PostTags,
     BlockContent
@@ -72,11 +67,7 @@ query Post ($id: ID!) {
   post: sanityPost (id: $id) {
     title
     publishedAt (format: "D. MMMM YYYY")
-    categories {
-      id
-      title
-    }
-    _rawExcerpt
+    lead
     _rawBody
     mainImage {
       asset {
@@ -96,6 +87,29 @@ query Post ($id: ID!) {
         bottom
         left
         right
+      }
+    }
+    designers {
+      designer {
+        name
+        image {
+          asset {
+            _id
+            url
+          }
+          hotspot {
+            x
+            y
+            width
+            height
+          }
+          crop {
+            top
+            left
+            right
+            bottom
+          }
+        }
       }
     }
   }
@@ -153,7 +167,7 @@ query Post ($id: ID!) {
   }
 }
 
-.post-author {
+.post-designer {
   margin-top: calc(var(--space) / 2);
 }
 </style>

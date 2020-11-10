@@ -1,7 +1,7 @@
 export default {
   name: 'mainImage',
   type: 'image',
-  title: 'Image',
+  title: 'Bilde',
   options: {
     hotspot: true
   },
@@ -9,7 +9,7 @@ export default {
     {
       name: 'caption',
       type: 'string',
-      title: 'Caption',
+      title: 'Bildetekst',
       options: {
         isHighlighted: true
       }
@@ -17,9 +17,9 @@ export default {
     {
       name: 'alt',
       type: 'string',
-      title: 'Alternative text',
-      description: 'Important for SEO and accessiblity.',
-      validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
+      title: 'Alternativ tekst',
+      description: 'Beskriv hva bildet viser. Viktig for universell utforming og SEO.',
+      validation: Rule => Rule.error('Du må fylle ut alternativ tekst.').required(),
       options: {
         isHighlighted: true
       }

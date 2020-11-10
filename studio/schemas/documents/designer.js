@@ -1,7 +1,7 @@
 export default {
-  name: 'author',
+  name: 'designer',
   type: 'document',
-  title: 'Author',
+  title: 'Designer',
   fields: [
     {
       name: 'name',
@@ -25,8 +25,13 @@ export default {
     },
     {
       name: 'bio',
-      type: 'bioPortableText',
-      title: 'Biography'
+      type: 'text',
+      title: 'Bio'
+    },
+    {
+      name: 'website',
+      type: 'string',
+      title: 'Nettside URL'
     }
   ],
   preview: {

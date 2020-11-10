@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="false">
-    <!-- Author intro -->
-    <author-card :show-title="true" />
+    <!-- Designer intro -->
+    <designer-card :show-title="true" />
 
     <!-- List posts -->
     <div class="posts">
@@ -31,12 +31,8 @@
         slug {
           current
         }
-        categories {
-          id
-          title
-        }
         publishedAt(format: "D. MMMM YYYY")
-        _rawExcerpt
+        lead
         mainImage {
           asset {
             _id
@@ -65,12 +61,12 @@
 </page-query>
 
 <script>
-import AuthorCard from '~/components/AuthorCard'
+import DesignerCard from '~/components/DesignerCard'
 import PostCard from '~/components/PostCard'
 
 export default {
   components: {
-    AuthorCard,
+    DesignerCard,
     PostCard
   },
   metaInfo: {
