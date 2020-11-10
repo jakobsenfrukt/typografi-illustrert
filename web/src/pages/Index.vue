@@ -1,17 +1,6 @@
 <template>
-  <Layout :show-logo="false">
-    <!-- Designer intro -->
-    <designer-card :show-title="true" />
-
-    <!-- List posts -->
-    <div class="posts">
-      <post-card
-        v-for="edge in $page.posts.edges"
-        :key="edge.node.id"
-        :post="edge.node"
-        :metadata="$page.metadata"
-      />
-    </div>
+  <Layout>
+    <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" />
   </Layout>
 </template>
 
@@ -61,13 +50,11 @@
 </page-query>
 
 <script>
-import DesignerCard from '~/components/DesignerCard'
-import PostCard from '~/components/PostCard'
+import PostGrid from '~/components/PostGrid'
 
 export default {
   components: {
-    DesignerCard,
-    PostCard
+    PostGrid
   },
   metaInfo: {
     title: 'Hello, world!'

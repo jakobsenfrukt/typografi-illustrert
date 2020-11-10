@@ -1,13 +1,14 @@
 <template>
   <Layout>
-    {{ $page.post.designers[0] }}
     <div class="post-title">
       <h1 class="post-title__text">{{ $page.post.title }}</h1>
-
-      <post-meta :post="$page.post" v-if="$page.post" />
     </div>
 
-    <div class="post content-box">
+    <blockquote v-if="$page.post.definition">{{ $page.post.definition }}</blockquote>
+
+    <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
+
+    <div class="post">
       <div class="post__header">
         <img
           alt="Cover image"
@@ -21,25 +22,17 @@
         :blocks="$page.post._rawBody"
         v-if="$page.post._rawBody"
       />
-
-      <div class="post__footer">
-        <post-tags :post="$page.post" v-if="$page.post" />
-      </div>
     </div>
   </Layout>
 </template>
 
 <script>
 import BlockContent from '~/components/BlockContent'
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
-import DesignerCard from '~/components/DesignerCard'
+import Designer from '~/components/Designer'
 
 export default {
   components: {
-    DesignerCard,
-    PostMeta,
-    PostTags,
+    Designer,
     BlockContent
   },
   metaInfo() {
@@ -68,6 +61,7 @@ query Post ($id: ID!) {
     title
     publishedAt (format: "D. MMMM YYYY")
     lead
+    definition
     _rawBody
     mainImage {
       asset {
@@ -92,6 +86,7 @@ query Post ($id: ID!) {
     designers {
       designer {
         name
+        bio
         image {
           asset {
             _id
@@ -124,12 +119,6 @@ query Post ($id: ID!) {
 
 .post {
   &__header {
-    width: calc(100% + var(--space) * 2);
-    margin-left: calc(var(--space) * -1);
-    margin-top: calc(var(--space) * -1);
-    margin-bottom: calc(var(--space) / 2);
-    overflow: hidden;
-    border-radius: var(--radius) var(--radius) 0 0;
 
     img {
       width: 100%;
@@ -157,17 +146,5 @@ query Post ($id: ID!) {
       max-width: none;
     }
   }
-}
-
-.post-comments {
-  padding: calc(var(--space) / 2);
-
-  &:empty {
-    display: none;
-  }
-}
-
-.post-designer {
-  margin-top: calc(var(--space) / 2);
 }
 </style>
