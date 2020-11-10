@@ -4,6 +4,9 @@
       <g-link to="/">{{ $static.settings.title }}</g-link>
     </h1>
     <p class="site-intro">{{$static.settings.description}}</p>
+    <g-link to="/om">
+      Om prosjektet
+    </g-link>
   </header>
 </template>
 
@@ -28,7 +31,7 @@ query {
   padding: 2rem;
 
   p {
-    max-width: 20rem;
+    max-width: 40rem;
   }
 
   .site-title {
