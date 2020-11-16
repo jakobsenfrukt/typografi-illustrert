@@ -27,8 +27,6 @@
             _id
             url
           }
-          caption
-          alt
           hotspot {
             x
             y
@@ -81,7 +79,7 @@ export default {
     PostGrid
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Typografi Illustrert'
   }
 }
 </script>

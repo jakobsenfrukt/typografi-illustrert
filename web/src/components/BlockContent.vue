@@ -27,7 +27,6 @@ export default {
                 src={this.$urlForImage(node, this.$static.metadata.sanityOptions)
                   .auto('format')
                   .url()}
-                alt={node.alt}
               />
               <figcaption>{node.caption}</figcaption>
             </figure>

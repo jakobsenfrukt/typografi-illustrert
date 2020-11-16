@@ -5,25 +5,24 @@
         <div class="post-header__text">
           <h1 class="post-title">{{ $page.post.title }}</h1>
           <blockquote class="definition" v-if="$page.post.definition">{{ $page.post.definition }}</blockquote>
+          <BlockContent
+            class="post__content"
+            :blocks="$page.post._rawBody"
+            v-if="$page.post._rawBody"
+          />
         </div>
         <img
-          alt="Cover image"
           v-if="$page.post.mainImage"
           :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
         />
       </div>
-
-      <block-content
-        class="post__content"
-        :blocks="$page.post._rawBody"
-        v-if="$page.post._rawBody"
-      />
     </div>
 
     <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
 
     <div class="related">
       <h2>Andre begreper</h2>
+      <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" />
     </div>
   </Layout>
 </template>
@@ -31,11 +30,13 @@
 <script>
 import BlockContent from '~/components/BlockContent'
 import Designer from '~/components/Designer'
+import PostGrid from '~/components/PostGrid'
 
 export default {
   components: {
     Designer,
-    BlockContent
+    BlockContent,
+    PostGrid
   },
   metaInfo() {
     return {
@@ -70,8 +71,6 @@ query Post ($id: ID!) {
         _id
         url
       }
-      caption
-      alt
       hotspot {
         x
         y
@@ -110,6 +109,61 @@ query Post ($id: ID!) {
       }
     }
   }
+  posts: allSanityPost(sortBy: "publishedAt") {
+    edges {
+      node {
+        id
+        title
+        slug {
+          current
+        }
+        publishedAt(format: "D. MMMM YYYY")
+        lead
+        mainImage {
+          asset {
+            _id
+            url
+          }
+          hotspot {
+            x
+            y
+            height
+            width
+          }
+          crop {
+            top
+            bottom
+            left
+            right
+          }
+        }
+        designers {
+          designer {
+            name
+            bio
+            image {
+              asset {
+                _id
+                url
+              }
+              hotspot {
+                x
+                y
+                width
+                height
+              }
+              crop {
+                top
+                left
+                right
+                bottom
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 </page-query>
 
@@ -118,8 +172,8 @@ query Post ($id: ID!) {
   &-header {
     display: flex;
     img {
-      width: 100%;
-      max-width: 600px;
+      width: 50%;
+      flex: none;
     }
 
     &:empty {
@@ -131,15 +185,6 @@ query Post ($id: ID!) {
   }
 
   &__content {
-    h2:first-child {
-      margin-top: 0;
-    }
-
-    p:first-of-type {
-      font-size: 1.2em;
-      color: var(--title-color);
-    }
-
     img {
       width: calc(100% + var(--space) * 2);
       margin-left: calc(var(--space) * -1);

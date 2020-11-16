@@ -18,7 +18,7 @@ export default {
 .designer {
   margin: 0;
   max-width: 32rem;
-  padding: 2rem;
+  padding: 2rem 0;
 
   &-name {
     font-size: 1.5em;

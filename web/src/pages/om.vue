@@ -31,8 +31,6 @@
             _id
             url
           }
-          caption
-          alt
           hotspot {
             x
             y

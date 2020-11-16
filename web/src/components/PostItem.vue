@@ -4,7 +4,6 @@
       <g-image
         v-if="post.mainImage"
         class="term-image"
-        :alt="post.mainImage.alt"
         :src="$urlForImage(post.mainImage, $page.metadata.sanityOptions).height(560).width(400).auto('format').url()"
       />
     </div>
