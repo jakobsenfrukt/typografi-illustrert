@@ -42,6 +42,30 @@
             right
           }
         }
+        designers {
+          designer {
+            name
+            bio
+            image {
+              asset {
+                _id
+                url
+              }
+              hotspot {
+                x
+                y
+                width
+                height
+              }
+              crop {
+                top
+                left
+                right
+                bottom
+              }
+            }
+          }
+        }
       }
     }
   }

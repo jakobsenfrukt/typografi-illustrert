@@ -1,27 +1,27 @@
-// Default variables
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+  --serif: 'Inter', sans-serif;
+}
+
 html {
-	--base-font-size: 20px;
+	--base-font-size: calc(14px + 6 * ((100vw - 320px) / 1600));
 }
 
 body {
- 	--bg-color: #F3F7F9;
+ 	--bg-color: #fff;
  	--bg-content-color: #fff;
  	--bg-code: #fffbf3;
  	--body-color: #444;
  	--title-color: #111;
- 	--link-color: #6b17e6;
- 	--border-color:  rgba(0,0,0,.1);;
+ 	--border-color:  rgba(0,0,0,.1);
   --space: 3.5rem;
   --content-width: 860px;
   --header-height: 80px;
   --radius: 5px;
 }
 
-// Make  things smaller for mobile
 @media screen and (max-width: 650px) {
-	html {
-		--base-font-size: 17px;
-	}
 	body {
 		--space: 1.5rem;
 		--header-height: 60px;

@@ -1,5 +1,4 @@
 import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
 import MdPerson from 'react-icons/lib/md/person'
 
 const hiddenDocTypes = listItem =>
@@ -10,8 +9,7 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
-        .title('Settings')
-        .icon(MdSettings)
+        .title('Om prosjektet')
         .child(
           S.editor()
             .id('siteSettings')

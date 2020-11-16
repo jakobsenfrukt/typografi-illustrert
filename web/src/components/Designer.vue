@@ -17,7 +17,7 @@ export default {
 <style lang="scss">
 .designer {
   margin: 0;
-  max-width: 20rem;
+  max-width: 32rem;
   padding: 2rem;
 
   &-name {

@@ -5,12 +5,12 @@
         v-if="post.mainImage"
         class="term-image"
         :alt="post.mainImage.alt"
-        :src="$urlForImage(post.mainImage, $page.metadata.sanityOptions).height(440).width(800).auto('format').url()"
+        :src="$urlForImage(post.mainImage, $page.metadata.sanityOptions).height(560).width(400).auto('format').url()"
       />
     </div>
     <div class="term-content">
+      <p v-if="post.designers[0]" class="term-designer">{{ post.designers[0].designer.name }} om</p>
       <h2 class="term-title" v-html="post.title" />
-      <p class="lead">{{ post.lead }}</p>
 
       <g-link class="term-link" :to="post.slug.current">Link</g-link>
     </div>
@@ -36,7 +36,6 @@ export default {
 
   &-header {
     overflow: hidden;
-    border-radius: var(--radius) var(--radius) 0 0;
 
     &:empty {
       display: none;

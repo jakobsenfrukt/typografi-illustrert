@@ -1,15 +1,11 @@
 <template>
   <Layout>
-    <div class="post-title">
-      <h1 class="post-title__text">{{ $page.post.title }}</h1>
-    </div>
-
-    <blockquote v-if="$page.post.definition">{{ $page.post.definition }}</blockquote>
-
-    <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
-
     <div class="post">
-      <div class="post__header">
+      <div class="post-header">
+        <div class="post-header__text">
+          <h1 class="post-title">{{ $page.post.title }}</h1>
+          <blockquote class="definition" v-if="$page.post.definition">{{ $page.post.definition }}</blockquote>
+        </div>
         <img
           alt="Cover image"
           v-if="$page.post.mainImage"
@@ -22,6 +18,12 @@
         :blocks="$page.post._rawBody"
         v-if="$page.post._rawBody"
       />
+    </div>
+
+    <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
+
+    <div class="related">
+      <h2>Andre begreper</h2>
     </div>
   </Layout>
 </template>
@@ -112,21 +114,20 @@ query Post ($id: ID!) {
 </page-query>
 
 <style lang="scss">
-.post-title {
-  padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
-  text-align: center;
-}
-
 .post {
-  &__header {
-
+  &-header {
+    display: flex;
     img {
       width: 100%;
+      max-width: 600px;
     }
 
     &:empty {
       display: none;
     }
+  }
+  &-title {
+    font-size: 4rem;
   }
 
   &__content {
@@ -146,5 +147,10 @@ query Post ($id: ID!) {
       max-width: none;
     }
   }
+}
+
+.definition {
+  max-width: 40rem;
+  font-size: 1.2rem;
 }
 </style>
