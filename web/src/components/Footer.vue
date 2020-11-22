@@ -1,5 +1,5 @@
 <template>
-  <header class="site-header">
+  <footer class="site-footer">
     <h1 class="site-title">
       <g-link to="/">{{ $static.settings.title }}</g-link>
     </h1>
@@ -7,13 +7,13 @@
     <g-link to="/om">
       Mer om prosjektet
     </g-link>
-  </header>
+  </footer>
 </template>
 
 <static-query>
 query {
   metadata {
-    sanityOptions{
+    sanityOptions {
       projectId
       dataset
     }
@@ -26,9 +26,10 @@ query {
 </static-query>
 
 <style lang="scss">
-.site-header {
+.site-footer {
   width: 100%;
   padding: 2rem;
+  border-top: 1px solid var(--body-color);
 
   p {
     max-width: 40rem;

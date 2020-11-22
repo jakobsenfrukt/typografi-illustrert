@@ -32,6 +32,7 @@ export default {
 <style lang="scss" scoped>
 .term {
   position: relative;
+  grid-column: span 3;
 
   &-header {
     overflow: hidden;
@@ -47,6 +48,7 @@ export default {
 
   &-title {
     margin-top: 0;
+    font-size: 2rem;
   }
 
   &-tags {
@@ -64,6 +66,11 @@ export default {
     overflow: hidden;
     text-indent: -9999px;
     z-index: 0;
+  }
+
+  transition: transform .2s ease-in-out;
+  &:hover {
+    transform: translateY(-10px);
   }
 }
 </style>

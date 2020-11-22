@@ -5,6 +5,7 @@
         <div class="post-header__text">
           <h1 class="post-title">{{ $page.post.title }}</h1>
           <blockquote class="definition" v-if="$page.post.definition">{{ $page.post.definition }}</blockquote>
+          <h2>{{ $page.post.designers[0].designer.name }} om {{ $page.post.title }}</h2>
           <BlockContent
             class="post__content"
             :blocks="$page.post._rawBody"
@@ -21,7 +22,6 @@
     <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
 
     <div class="related">
-      <h2>Andre begreper</h2>
       <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" />
     </div>
   </Layout>
@@ -182,6 +182,7 @@ query Post ($id: ID!) {
   }
   &-title {
     font-size: 4rem;
+    font-weight: 900;
   }
 
   &__content {

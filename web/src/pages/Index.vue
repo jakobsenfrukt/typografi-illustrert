@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" />
+    <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" showMenu />
   </Layout>
 </template>
 
@@ -12,7 +12,7 @@
       dataset
     }
   }
-  posts: allSanityPost(sortBy: "publishedAt") {
+  posts: allSanityPost(sortBy: "title", order: ASC) {
     edges {
       node {
         id

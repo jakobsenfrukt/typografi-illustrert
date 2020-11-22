@@ -14,6 +14,17 @@ export default {
       type: 'text',
       title: 'Beskrivelse',
       description: 'Brukes også i Google søkeresultat og når nettsiden deles på sosiale medier.'
-    }
+    },
+    {
+      name: 'content',
+      type: 'array',
+      title: 'Prosessgalleri',
+      of: [
+        {
+          type: 'mainImage',
+          title: 'Bilde'
+        }
+      ]
+    },
   ]
 }
