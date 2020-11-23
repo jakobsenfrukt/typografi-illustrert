@@ -3,9 +3,8 @@
     <h1 class="site-title">
       <g-link to="/">{{ $static.settings.title }}</g-link>
     </h1>
-    <p class="site-intro">{{$static.settings.description}}</p>
     <g-link to="/om">
-      Mer om prosjektet
+      Om prosjektet
     </g-link>
   </header>
 </template>
@@ -29,12 +28,14 @@ query {
 .site-header {
   width: 100%;
   padding: 2rem;
-
-  p {
-    max-width: 40rem;
-  }
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .site-title {
+    line-height: 1;
+    margin: 0;
     a {
       color: inherit;
       text-decoration: none;

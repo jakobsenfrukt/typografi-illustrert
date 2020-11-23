@@ -1,7 +1,8 @@
 <template>
-  <Layout>
+  <IndexLayout>
+    <Intro />
     <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" showMenu />
-  </Layout>
+  </IndexLayout>
 </template>
 
 <page-query>
@@ -72,11 +73,15 @@
 </page-query>
 
 <script>
+import IndexLayout from '~/layouts/Index'
 import PostGrid from '~/components/PostGrid'
+import Intro from '~/components/Intro'
 
 export default {
   components: {
-    PostGrid
+    IndexLayout,
+    PostGrid,
+    Intro
   },
   metaInfo: {
     title: 'Typografi Illustrert'

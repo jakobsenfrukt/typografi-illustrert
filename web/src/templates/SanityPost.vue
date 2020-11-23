@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <div class="post">
+      <div>Forrige begrep — Neste begrep</div>
       <div class="post-header">
         <div class="post-header__text">
           <h1 class="post-title">{{ $page.post.title }}</h1>
@@ -15,11 +16,13 @@
         <img
           v-if="$page.post.mainImage"
           :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          class="post-header__image"
         />
       </div>
-    </div>
 
-    <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
+      <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
+
+    </div>
 
     <div class="related">
       <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" />
@@ -169,11 +172,22 @@ query Post ($id: ID!) {
 
 <style lang="scss">
 .post {
+  margin: 3rem 0 6rem;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(12, 1fr);
   &-header {
-    display: flex;
-    img {
-      width: 50%;
-      flex: none;
+    grid-column: 2 / span 10;
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: repeat(10, 1fr);
+
+    &__image {
+      grid-column: 6 / span 5;
+    }
+
+    &__text {
+      grid-column: 1 / span 5;
     }
 
     &:empty {
@@ -192,6 +206,12 @@ query Post ($id: ID!) {
       display: block;
       max-width: none;
     }
+  }
+
+  blockquote {
+    margin: 3rem 0 6rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
   }
 }
 

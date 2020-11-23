@@ -1,6 +1,14 @@
 <template>
   <Layout>
     <p class="site-intro">{{$page.settings.description}}</p>
+    <div class="gallery">
+      <div v-for="(image, index) in $page.settings.content" :key="index" class="gallery-image">
+        <img
+          v-if="image.asset.url"
+          :src="$urlForImage(image, $page.metadata.sanityOptions).width(600).auto('format').url()"
+        />
+      </div>
+    </div>
   </Layout>
 </template>
 
@@ -15,6 +23,11 @@
   settings: sanitySiteSettings(id: "siteSettings") {
     title
     description
+    content {
+      asset {
+        url
+      }
+    }
   }
   posts: allSanityPost(sortBy: "publishedAt") {
     edges {
@@ -59,7 +72,7 @@ export default {
     PostGrid
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Om: Typografi Illustrert'
   }
 }
 </script>

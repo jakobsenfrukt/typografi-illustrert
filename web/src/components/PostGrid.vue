@@ -7,6 +7,14 @@
           {{ post.node.title }}
         </g-link>
       </li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li class="menu-designer"><strong>Designere</strong></li>
+      <li v-for="(post, index) in posts" :key="index" class="menu-designer">
+        <g-link class="term-link" :to="post.node.slug.current">
+          {{ post.node.designers[0].designer.name }}
+        </g-link>
+      </li>
     </ul>
     <div v-else class="terms-header">
       <h2>Andre begreper</h2>
@@ -34,9 +42,6 @@ export default {
   },
   components: {
     PostItem
-  },
-  metaInfo: {
-    title: 'Hello, world!'
   }
 }
 </script>
@@ -47,6 +52,7 @@ export default {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 3rem;
   padding-bottom: 4rem;
+  //border-top: 1px solid var(--border-color);
 
   &-header {
     grid-column: span 12;
@@ -70,20 +76,27 @@ export default {
         transition: all .3s ease;
         &:before {
           content: "-";
+          font-family: var(--sans-serif);
           display: block;
           position: absolute;
           left: 0;
           opacity: 0;
           transform: translateX(-100%);
-          transition: all .3s ease;
+          transition: all .2s ease;
         }
         &:hover {
           padding-left: .6rem;
+          font-weight: 700;
           &:before {
             opacity: 1;
             transform: translateX(0);
+            font-weight: 300;
           }
         }
+      }
+
+      &.menu-designer {
+        opacity: .4;
       }
     }
   }

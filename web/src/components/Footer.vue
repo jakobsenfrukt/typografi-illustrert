@@ -1,12 +1,12 @@
 <template>
   <footer class="site-footer">
-    <h1 class="site-title">
-      <g-link to="/">{{ $static.settings.title }}</g-link>
-    </h1>
-    <p class="site-intro">{{$static.settings.description}}</p>
-    <g-link to="/om">
-      Mer om prosjektet
-    </g-link>
+    <Intro v-if="showIntro" />
+    <div>
+      Kontaktinfo? Instagram-konto?
+    </div>
+    <div class="totop" @click="toTop()">
+      Til toppen &uarr;
+    </div>
   </footer>
 </template>
 
@@ -25,11 +25,32 @@ query {
 }
 </static-query>
 
+<script>
+import Intro from '~/components/Intro'
+
+export default {
+  components: {
+    Intro
+  },
+  props: {
+    showIntro: Boolean
+  },
+  methods: {
+    toTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 .site-footer {
   width: 100%;
   padding: 2rem;
-  border-top: 1px solid var(--body-color);
+  border-top: 1px solid var(--border-color);
 
   p {
     max-width: 40rem;
@@ -40,6 +61,10 @@ query {
       color: inherit;
       text-decoration: none;
     }
+  }
+
+  .totop {
+    text-align: right;
   }
 }
 </style>

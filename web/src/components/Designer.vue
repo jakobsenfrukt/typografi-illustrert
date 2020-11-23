@@ -16,9 +16,9 @@ export default {
 
 <style lang="scss">
 .designer {
-  margin: 0;
-  max-width: 32rem;
+  grid-column: 2 / span 10;
   padding: 2rem 0;
+  background: #eee;
 
   &-name {
     font-size: 1.5em;
