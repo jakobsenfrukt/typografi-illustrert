@@ -10,10 +10,15 @@ export default {
       title: 'Tittel'
     },
     {
-      name: 'description',
+      name: 'lead',
       type: 'text',
-      title: 'Beskrivelse',
+      title: 'Ingress',
       description: 'Brukes også i Google søkeresultat og når nettsiden deles på sosiale medier.'
+    },
+    {
+      name: 'description',
+      type: 'bodyPortableText',
+      title: 'Brødtekst'
     },
     {
       name: 'content',
@@ -26,5 +31,15 @@ export default {
         }
       ]
     },
+    {
+      name: 'portrait',
+      type: 'mainImage',
+      title: 'Portrett'
+    },
+    {
+      name: 'bio',
+      type: 'bioPortableText',
+      title: 'Bio'
+    }
   ]
 }

@@ -12,7 +12,8 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the person',
+      description: 'Slugen fungerer som en unik ID til denne designeren. Den bør være kort og kan ikke inneholde spesialtegn eller mellomrom.',
+      validation: Rule => Rule.error('Slug er obligatorisk.').required(),
       options: {
         source: 'name',
         maxLength: 96

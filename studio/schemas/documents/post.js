@@ -14,7 +14,8 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Slug er obligatorisk og blir endelsen på URLen som går direkte til denne begrepssiden.',
+      description: 'Slug er slutten på URLen for dette begrepet. (eks. typografiillustrert.no/begrep/slug-kommer-her) Den bør være kort og kan ikke inneholde spesialtegn eller mellomrom. Klikk på "Generate" for å generere en slug fra begrepet automatisk.',
+      validation: Rule => Rule.error('Slug er obligatorisk.').required(),
       options: {
         source: 'title',
         maxLength: 96
@@ -23,7 +24,8 @@ export default {
     {
       name: 'publishedAt',
       type: 'datetime',
-      title: 'Publisert'
+      title: 'Publisert',
+      validation: Rule => Rule.error('Publiseringstidspunkt er obligatorisk.').required(),
     },
     {
       name: 'mainImage',

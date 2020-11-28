@@ -13,6 +13,14 @@ export default {
       options: {
         isHighlighted: true
       }
+    },
+    {
+      name: 'credit',
+      type: 'string',
+      title: 'Fotograf',
+      options: {
+        isHighlighted: true
+      }
     }
   ],
   preview: {

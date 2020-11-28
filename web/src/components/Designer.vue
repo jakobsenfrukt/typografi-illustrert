@@ -1,6 +1,5 @@
 <template>
   <div class="designer">
-    <span>Designer:</span>
     <h1 class="designer-name">{{ designer.name }}</h1>
     <p class="designer-bio">{{ designer.bio }}</p>
   </div>
@@ -16,9 +15,9 @@ export default {
 
 <style lang="scss">
 .designer {
-  grid-column: 2 / span 10;
+  grid-column: 1 / span 10;
   padding: 2rem 0;
-  background: #eee;
+  opacity: .6;
 
   &-name {
     font-size: 1.5em;

@@ -1,8 +1,11 @@
 <template>
   <header class="site-header">
-    <h1 class="site-title">
-      <g-link to="/">{{ $static.settings.title }}</g-link>
-    </h1>
+    <div>
+      <h1 class="site-title">
+        <g-link to="/">{{ $static.settings.title }}</g-link>
+      </h1>
+      <p>{{ $static.settings.lead }}</p>
+    </div>
     <g-link to="/om">
       Om prosjektet
     </g-link>
@@ -19,7 +22,7 @@ query {
   }
   settings: sanitySiteSettings(id: "siteSettings") {
     title
-    description
+    lead
   }
 }
 </static-query>
@@ -28,6 +31,7 @@ query {
 .site-header {
   width: 100%;
   padding: 2rem;
+  margin-bottom: var(--space);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
@@ -40,6 +44,9 @@ query {
       color: inherit;
       text-decoration: none;
     }
+  }
+  p {
+    max-width: none;
   }
 }
 </style>

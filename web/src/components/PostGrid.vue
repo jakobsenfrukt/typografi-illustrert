@@ -1,43 +1,98 @@
 <template>
-  <div class="terms">
-    <ul v-if="showMenu" class="menu">
-      <li><strong>Begreper</strong></li>
-      <li v-for="(post, index) in posts" :key="index">
-        <g-link class="term-link" :to="post.node.slug.current">
-          {{ post.node.title }}
-        </g-link>
-      </li>
-      <li>&nbsp;</li>
-      <li>&nbsp;</li>
-      <li class="menu-designer"><strong>Designere</strong></li>
-      <li v-for="(post, index) in posts" :key="index" class="menu-designer">
-        <g-link class="term-link" :to="post.node.slug.current">
-          {{ post.node.designers[0].designer.name }}
-        </g-link>
-      </li>
-    </ul>
-    <div v-else class="terms-header">
+  <div class="terms" :class="{ showMenu: showMenu }">
+    <div v-if="!showMenu" class="terms-header">
       <h2>Andre begreper</h2>
       <g-link class="show-all" to="/">
         Se alle begreper
       </g-link>
     </div>
-    <PostItem
-      v-for="post in posts"
-      :key="post.node.id"
-      :post="post.node"
-      :metadata="meta"
-    />
+    <div class="posters">
+      <PostItem
+        v-for="post in $static.posts.edges.slice(0, limit)"
+        :key="post.node.id"
+        :post="post.node"
+        :metadata="$static.metadata"
+      />
+    </div>
   </div>
 </template>
+
+<static-query>
+{
+  metadata {
+    sanityOptions {
+      projectId
+      dataset
+    }
+  }
+  posts: allSanityPost(sortBy: "title", order: ASC) {
+    edges {
+      node {
+        id
+        title
+        slug {
+          current
+        }
+        publishedAt(format: "D. MMMM YYYY")
+        lead
+        mainImage {
+          asset {
+            _id
+            url
+          }
+          hotspot {
+            x
+            y
+            height
+            width
+          }
+          crop {
+            top
+            bottom
+            left
+            right
+          }
+        }
+        designers {
+          designer {
+            name
+            bio
+            image {
+              asset {
+                _id
+                url
+              }
+              hotspot {
+                x
+                y
+                width
+                height
+              }
+              crop {
+                top
+                left
+                right
+                bottom
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+</static-query>
 
 <script>
 import PostItem from '~/components/PostItem'
 
 export default {
   props: {
-    posts: Array,
-    meta: Object,
+    limit: {
+      type: Number,
+      default: 100
+    },
     showMenu: Boolean
   },
   components: {
@@ -48,56 +103,40 @@ export default {
 
 <style lang="scss" scoped>
 .terms {
+  grid-column: 1 / span 12;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 3rem;
-  padding-bottom: 4rem;
-  //border-top: 1px solid var(--border-color);
+  grid-gap: var(--space);
+  padding: var(--space) var(--space) 4rem;
+  border-top: 1px solid var(--border-color);
+
+
+  .posters {
+    grid-column: 1 / span 12;
+    display: grid;
+    grid-gap: var(--space);
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &.showMenu {
+    padding: 0 0 4rem;
+    grid-column: 1 / span 10;
+    grid-template-columns: repeat(10, 1fr);
+    border: none;
+    .posters {
+      grid-column: 1 / span 10;
+      grid-template-columns: repeat(10, 1fr);
+    }
+  }
 
   &-header {
     grid-column: span 12;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    grid-column: span 2;
-
-    li {
-      margin: 0 0 .24rem;
-      a {
-        text-decoration: none;
-        display: block;
-        position: relative;
-        transition: all .3s ease;
-        &:before {
-          content: "-";
-          font-family: var(--sans-serif);
-          display: block;
-          position: absolute;
-          left: 0;
-          opacity: 0;
-          transform: translateX(-100%);
-          transition: all .2s ease;
-        }
-        &:hover {
-          padding-left: .6rem;
-          font-weight: 700;
-          &:before {
-            opacity: 1;
-            transform: translateX(0);
-            font-weight: 300;
-          }
-        }
-      }
-
-      &.menu-designer {
-        opacity: .4;
-      }
+    h2 {
+      margin: 0;
     }
   }
 }

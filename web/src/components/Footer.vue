@@ -1,6 +1,5 @@
 <template>
   <footer class="site-footer">
-    <Intro v-if="showIntro" />
     <div>
       Kontaktinfo? Instagram-konto?
     </div>
@@ -10,31 +9,8 @@
   </footer>
 </template>
 
-<static-query>
-query {
-  metadata {
-    sanityOptions {
-      projectId
-      dataset
-    }
-  }
-  settings: sanitySiteSettings(id: "siteSettings") {
-    title
-    description
-  }
-}
-</static-query>
-
 <script>
-import Intro from '~/components/Intro'
-
 export default {
-  components: {
-    Intro
-  },
-  props: {
-    showIntro: Boolean
-  },
   methods: {
     toTop() {
       window.scrollTo({

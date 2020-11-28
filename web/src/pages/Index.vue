@@ -1,6 +1,5 @@
 <template>
   <IndexLayout>
-    <Intro />
     <PostGrid :posts="$page.posts.edges" :meta="$page.metadata" showMenu />
   </IndexLayout>
 </template>

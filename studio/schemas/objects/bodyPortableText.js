@@ -39,15 +39,7 @@ export default {
             ]
           }
         ]
-      },
-      of: [{type: 'designerReference'}]
-    },
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
-    {
-      type: 'mainImage',
-      options: {hotspot: true}
+      }
     }
   ]
 }

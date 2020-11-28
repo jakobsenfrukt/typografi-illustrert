@@ -1,6 +1,6 @@
 <template>
   <div class="site-intro">
-    <p>{{$static.settings.description}}</p>
+    <p>{{$static.settings.lead}}</p>
   </div>
 </template>
 
@@ -8,13 +8,13 @@
 query {
   settings: sanitySiteSettings(id: "siteSettings") {
     title
-    description
+    lead
   }
 }
 </static-query>
 
 <style lang="scss">
 .site-intro {
-  margin-bottom: 4rem;
+  margin: 0;
 }
 </style>
