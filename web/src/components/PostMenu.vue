@@ -8,8 +8,8 @@
     </li>
     <li>&nbsp;</li>
     <li>&nbsp;</li>
-    <li class="menu-designer"><strong>Bidragsytere</strong></li>
-    <li v-for="(post, index) in $static.posts.edges" :key="`designer-${index}`" class="menu-designer">
+    <li class="menu-designer heading" @click="open = !open" :class="{ open: open }"><strong>Bidragsytere</strong></li>
+    <li v-for="(post, index) in $static.posts.edges" :key="`designer-${index}`" class="menu-designer menu-designer-item" :class="{ open: open }">
       <g-link class="term-link" :to="post.node.slug.current">
         {{ post.node.designers[0].designer.name }}
       </g-link>
@@ -38,11 +38,21 @@ query {
 }
 </static-query>
 
+<script>
+export default {
+  data() {
+    return {
+      open: false
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .post-menu {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem 0 0;
   grid-column: 1 / span 2;
 
   li {
@@ -54,7 +64,7 @@ query {
       position: relative;
       transition: all .3s ease;
       &:before {
-        content: "-";
+        content: "- ";
         font-family: var(--sans-serif);
         display: block;
         position: absolute;
@@ -64,7 +74,7 @@ query {
         transition: all .2s ease;
       }
       &:hover {
-        padding-left: .6rem;
+        padding-left: .8rem;
         font-weight: 700;
         &:before {
           opacity: 1;
@@ -75,7 +85,37 @@ query {
     }
 
     &.menu-designer {
-      opacity: .4;
+      opacity: .6;
+
+      &.open {
+        opacity: .8;
+      }
+
+      &.heading {
+        border-top: 1px solid #aaa;
+        padding-top: 1rem;
+        cursor: pointer;
+        &:after {
+          content: "▼";
+          font-size: .5rem;
+          vertical-align: middle;
+          line-height: 1.5rem;
+          float: right;
+        }
+        &.open {
+          &:after {
+            content: "▲";
+          }
+        }
+      }
+
+      &-item {
+        display: none;
+
+        &.open {
+          display: block;
+        }
+      }
     }
   }
 }

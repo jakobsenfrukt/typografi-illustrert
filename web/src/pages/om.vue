@@ -21,11 +21,13 @@
           v-if="$page.settings._rawBio"
         />
       </div>
-      <img
-        v-if="$page.settings.portrait"
-        :src="$urlForImage($page.settings.portrait, $page.metadata.sanityOptions).width(600).auto('format').url()"
-        class="bio-image"
-      />
+      <figure class="bio-image">
+        <img
+          v-if="$page.settings.portrait"
+          :src="$urlForImage($page.settings.portrait, $page.metadata.sanityOptions).width(600).auto('format').url()"
+        />
+        <figcaption>Foto: {{$page.settings.portrait.credit}}</figcaption>
+      </figure>
     </div>
   </IndexLayout>
 </template>
@@ -64,6 +66,7 @@
         left
         right
       }
+      credit
     }
     _rawBio
   }
@@ -92,6 +95,7 @@ export default {
 @import '@/assets/style/_variables.scss';
 .about-content {
   grid-column: 1 / span 10;
+  font-size: 1.4rem;
 }
 .gallery {
   grid-column: 1 / span 10;
@@ -112,13 +116,30 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: var(--space);
   p {
-    opacity: .6;
+    opacity: .8;
+
+    &:first-of-type {
+      &:first-letter {
+        color: #903;
+        float: left;
+        font-size: 6rem;
+        line-height: 3rem;
+        padding-top: .5rem;
+        padding-right: .5rem;
+        padding-left: 0;
+      }
+    }
   }
   &-text {
     grid-column: 1 / span 1;
   }
   &-image {
     grid-column: 2 / span 1;
+
+    figcaption {
+      opacity: .6;
+      font-style: italic;
+    }
   }
 }
 </style>

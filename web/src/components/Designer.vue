@@ -17,7 +17,7 @@ export default {
 .designer {
   grid-column: 1 / span 10;
   padding: 2rem 0;
-  opacity: .6;
+  opacity: .8;
 
   &-name {
     font-size: 1.5em;

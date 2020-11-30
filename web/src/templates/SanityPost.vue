@@ -131,6 +131,9 @@ query Post ($id: ID!) {
   }
 
   &-content {
+    p {
+      font-size: 1.2rem;
+    }
     img {
       width: calc(100% + var(--space) * 2);
       margin-left: calc(var(--space) * -1);
@@ -141,8 +144,10 @@ query Post ($id: ID!) {
 
   blockquote {
     margin: 3rem 0 6rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 1.4;
+    padding-left: 2rem;
+    border-left: 6px solid crimson;
   }
 }
 

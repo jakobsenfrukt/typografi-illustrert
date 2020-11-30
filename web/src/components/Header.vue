@@ -2,13 +2,18 @@
   <header class="site-header">
     <div>
       <h1 class="site-title">
-        <g-link to="/">{{ $static.settings.title }}</g-link>
+        <g-link to="/">
+          <!--{{ $static.settings.title }}-->
+          Typografiske Begreper <span>Illustrert</span>
+        </g-link>
       </h1>
-      <p>{{ $static.settings.lead }}</p>
     </div>
-    <g-link to="/om">
-      Om prosjektet
-    </g-link>
+    <div class="about">
+      <p>{{ $static.settings.lead }}</p>
+      <g-link to="/om">
+        Mer om prosjektet
+      </g-link>
+    </div>
   </header>
 </template>
 
@@ -40,6 +45,20 @@ query {
   .site-title {
     line-height: 1;
     margin: 0;
+
+    font-weight: 800;
+    font-size: 1.6rem;
+    span {
+      font-family: var(--serif);
+      text-transform: none;
+      font-weight: 500;
+      font-style: italic;
+      vertical-align: middle;
+      font-size: 2rem;
+      margin-bottom: .5rem;
+      display: inline-block;
+      color: crimson;
+    }
     a {
       color: inherit;
       text-decoration: none;
@@ -47,6 +66,9 @@ query {
   }
   p {
     max-width: none;
+  }
+  .about {
+    text-align: right;
   }
 }
 </style>
