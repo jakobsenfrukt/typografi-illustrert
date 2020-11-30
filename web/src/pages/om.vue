@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <IndexLayout>
     <div class="about-content">
       <BlockContent
         :blocks="$page.settings._rawDescription"
@@ -15,17 +15,19 @@
       </div>
     </div>
     <div class="bio">
-      <BlockContent
-        :blocks="$page.settings._rawBio"
-        v-if="$page.settings._rawBio"
-      />
+      <div class="bio-text">
+        <BlockContent
+          :blocks="$page.settings._rawBio"
+          v-if="$page.settings._rawBio"
+        />
+      </div>
       <img
         v-if="$page.settings.portrait"
         :src="$urlForImage($page.settings.portrait, $page.metadata.sanityOptions).width(600).auto('format').url()"
-        class="post-image"
+        class="bio-image"
       />
     </div>
-  </Layout>
+  </IndexLayout>
 </template>
 
 <page-query>
@@ -70,11 +72,13 @@
 </page-query>
 
 <script>
+import IndexLayout from '~/layouts/Index'
 import PostGrid from '~/components/PostGrid'
 import BlockContent from '~/components/BlockContent'
 
 export default {
   components: {
+    IndexLayout,
     PostGrid,
     BlockContent
   },
@@ -109,6 +113,12 @@ export default {
   grid-column-gap: var(--space);
   p {
     opacity: .6;
+  }
+  &-text {
+    grid-column: 1 / span 1;
+  }
+  &-image {
+    grid-column: 2 / span 1;
   }
 }
 </style>
