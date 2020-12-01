@@ -44,7 +44,7 @@ query {
 
   .site-title {
     line-height: 1;
-    margin: 0;
+    margin: 0 0 1rem;
 
     font-weight: 800;
     font-size: 1.9rem;
@@ -58,7 +58,7 @@ query {
       margin-bottom: .5rem;
       display: inline-block;
       color: rgb(254, 24, 4);
-      transform: translate(-8rem, 1.4rem);
+      transform: translate(-8rem, 1.46rem);
       position: relative;
       z-index: -1;
     }
@@ -75,6 +75,7 @@ query {
     font-family: var(--sans-serif);
     font-weight: 300;
     line-height: 1.3;
+    padding-left: 2rem;
     a {
       font-weight: bold;
       font-style: normal;

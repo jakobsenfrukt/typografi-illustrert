@@ -25,6 +25,7 @@ export default {
 
   &-bio {
     opacity: 0.8;
+    max-width: 36em;
   }
 }
 </style>

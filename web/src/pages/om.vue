@@ -115,16 +115,18 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: var(--space);
+  align-items: center;
   p {
     opacity: .8;
+    font-size: 1.2rem;
 
     &:first-of-type {
       &:first-letter {
-        color: #903;
+        color: rgb(254, 24, 4);
         float: left;
-        font-size: 6rem;
-        line-height: 3rem;
-        padding-top: .5rem;
+        font-size: 7rem;
+        line-height: 4rem;
+        padding-top: .7rem;
         padding-right: .5rem;
         padding-left: 0;
       }
@@ -135,6 +137,7 @@ export default {
   }
   &-image {
     grid-column: 2 / span 1;
+    margin: 0;
 
     figcaption {
       opacity: .6;
