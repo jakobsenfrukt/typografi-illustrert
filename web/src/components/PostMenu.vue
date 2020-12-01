@@ -1,6 +1,6 @@
 <template>
   <ul class="post-menu">
-    <li><strong>Begreper</strong></li>
+    <li class="heading"><strong>Begreper</strong></li>
     <li v-for="(post, index) in $static.posts.edges" :key="`term-${index}`">
       <g-link class="term-link" :to="post.node.slug.current">
         {{ post.node.title }}
@@ -58,6 +58,10 @@ export default {
   li {
     margin: 0 0 .6rem;
     line-height: 1.2;
+    &.heading {
+      font-family: var(--sans-serif);
+      margin-bottom: .8rem;
+    }
     a {
       text-decoration: none;
       display: block;
@@ -94,6 +98,7 @@ export default {
       &.heading {
         border-top: 1px solid #aaa;
         padding-top: 1rem;
+        font-family: var(--sans-serif);
         cursor: pointer;
         &:after {
           content: "▼";

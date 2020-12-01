@@ -4,7 +4,7 @@
       <h1 class="site-title">
         <g-link to="/">
           <!--{{ $static.settings.title }}-->
-          Typografiske Begreper <span>Illustrert</span>
+          Typografi <span>Illustrert</span>
         </g-link>
       </h1>
     </div>
@@ -47,17 +47,20 @@ query {
     margin: 0;
 
     font-weight: 800;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     span {
       font-family: var(--serif);
       text-transform: none;
       font-weight: 500;
       font-style: italic;
       vertical-align: middle;
-      font-size: 2rem;
+      font-size: 2.7rem;
       margin-bottom: .5rem;
       display: inline-block;
-      color: crimson;
+      color: rgb(254, 24, 4);
+      transform: translate(-8rem, 1.4rem);
+      position: relative;
+      z-index: -1;
     }
     a {
       color: inherit;
@@ -69,6 +72,15 @@ query {
   }
   .about {
     text-align: right;
+    font-family: var(--sans-serif);
+    font-weight: 300;
+    line-height: 1.3;
+    a {
+      font-weight: bold;
+      font-style: normal;
+      font-size: 1rem;
+      color: rgb(254, 24, 4);
+    }
   }
 }
 </style>
