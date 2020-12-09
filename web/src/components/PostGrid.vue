@@ -140,4 +140,19 @@ export default {
     }
   }
 }
+@media (max-width: 800px) {
+  .terms {
+    padding: 2rem;
+    &.showMenu {
+      padding: 0 0 4rem;
+      grid-column: 1 / span 12;
+      grid-template-columns: repeat(12, 1fr);
+      border: none;
+      .posters {
+        grid-column: 1 / span 12;
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+  }
+}
 </style>

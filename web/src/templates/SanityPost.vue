@@ -179,4 +179,33 @@ query Post ($id: ID!) {
     border-left: 6px solid crimson;
   }
 }
+@media (max-width: 800px) {
+  .post {
+    grid-template-columns: 1fr;
+    &-image {
+      position: relative;
+      grid-column: span 1;
+      order: 1;
+      img {
+        width: 100%;
+        cursor: default;
+      }
+    }
+    &-text {
+      grid-column: span 1;
+      order: 2;
+    }
+    &.zoom {
+      .post-image {
+        img {
+          cursor: default;
+          width: 100%;
+        }
+      }
+      .post-text {
+        padding-top: 0;
+      }
+    }
+  }
+}
 </style>

@@ -124,4 +124,16 @@ export default {
     }
   }
 }
+@media (max-width: 800px) {
+  .post-menu {
+    grid-column: 1 / span 12;
+    padding: 0;
+    li {
+      padding: .5rem 2rem;
+    }
+    .menu-designer {
+      display: none;
+    }
+  }
+}
 </style>

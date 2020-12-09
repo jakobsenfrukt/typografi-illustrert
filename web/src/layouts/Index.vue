@@ -40,4 +40,13 @@ export default {
     grid-template-columns: repeat(10, 1fr);
   }
 }
+@media (max-width: 800px) {
+  .page {
+    padding: 0;
+    main {
+      padding: 2rem;
+      grid-column: span 12;
+    }
+  }
+}
 </style>

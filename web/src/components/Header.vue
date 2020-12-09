@@ -5,6 +5,7 @@
         <g-link to="/">
           <!--{{ $static.settings.title }}-->
           Typografiske begreper <span>Illustrert</span>
+          <!--Typografiske<br/>begreper <span>Illustrert</span>-->
         </g-link>
       </h1>
     </div>
@@ -12,6 +13,11 @@
       <p>{{ $static.settings.lead }}</p>
       <g-link to="/om">
         Mer om prosjektet
+      </g-link>
+    </div>
+    <div class="about-mobile">
+      <g-link to="/om">
+        Om
       </g-link>
     </div>
   </header>
@@ -48,16 +54,17 @@ query {
     position: relative;
 
     font-weight: 800;
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     span {
       font-family: var(--serif);
       text-transform: none;
       font-weight: 500;
       font-style: italic;
-      font-size: 2.7rem;
-      margin-bottom: .5rem;
+      font-size: 2.6rem;
+      line-height: 1;
       display: block;
       color: rgb(254, 24, 4);
+      //transform: translate(7.4rem, -1.8rem);
       transform: translate(8rem, -.8rem);
       position: relative;
       z-index: -1;
@@ -68,12 +75,11 @@ query {
     }
   }
   p {
-    max-width: none;
+    max-width: 30rem;
   }
   .about {
     text-align: right;
     font-family: var(--sans-serif);
-    font-weight: 300;
     line-height: 1.3;
     padding-left: 2rem;
     a {
@@ -81,6 +87,30 @@ query {
       font-style: normal;
       font-size: 1rem;
       color: rgb(254, 24, 4);
+    }
+  }
+  .about-mobile {
+    text-align: right;
+    font-family: var(--sans-serif);
+    line-height: 1.3;
+    padding-left: 2rem;
+    a {
+      font-weight: bold;
+      font-style: normal;
+      font-size: 1rem;
+      color: rgb(254, 24, 4);
+    }
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .site-header {
+    align-items: flex-start;
+    .about {
+      display: none;
+    }
+    .about-mobile {
+      display: block;
     }
   }
 }

@@ -73,4 +73,9 @@ export default {
     transform: translateY(-10px);
   }
 }
+@media (max-width: 800px) {
+  .term {
+    grid-column: span 6;
+  }
+}
 </style>

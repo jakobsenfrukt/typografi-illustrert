@@ -155,4 +155,12 @@ export default {
     }
   }
 }
+@media (max-width: 800px) {
+  .bio {
+    display: block;
+    &-text {
+      margin-bottom: 2rem;
+    }
+  }
+}
 </style>
