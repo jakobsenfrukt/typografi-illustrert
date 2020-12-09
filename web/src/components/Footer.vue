@@ -1,7 +1,6 @@
 <template>
   <footer class="site-footer">
     <div>
-      {{ $static.settings }}
       <BlockContent
         :blocks="$static.settings._rawFooter"
         v-if="$static.settings._rawFooter"
@@ -50,9 +49,15 @@ export default {
   width: 100%;
   padding: 2rem;
   border-top: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: flex-end;
 
   p {
     max-width: 40rem;
+    + p {
+      text-indent: 0;
+    }
   }
 
   .site-title {

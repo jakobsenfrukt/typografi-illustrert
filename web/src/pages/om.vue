@@ -6,14 +6,16 @@
         v-if="$page.settings._rawDescription"
       />
     </div>
-    <VueMasonryWall :items="$page.settings.content" :options="options" class="gallery">
-      <template v-slot:default="{item}">
-        <img
-          v-if="item.asset.url"
-          :src="$urlForImage(item, $page.metadata.sanityOptions).width(600).auto('format').url()"
-        />
-      </template>
-    </VueMasonryWall>
+    <ClientOnly>
+      <VueMasonryWall :items="$page.settings.content" :options="options" class="gallery">
+        <template v-slot:default="{item}">
+          <img
+            v-if="item.asset.url"
+            :src="$urlForImage(item, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          />
+        </template>
+      </VueMasonryWall>
+    </ClientOnly>
     <div class="bio">
       <div class="bio-text">
         <BlockContent
