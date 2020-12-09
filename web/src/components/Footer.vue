@@ -1,7 +1,11 @@
 <template>
   <footer class="site-footer">
     <div>
-      Kontaktinfo? Instagram-konto?
+      {{ $static.settings }}
+      <BlockContent
+        :blocks="$static.settings._rawFooter"
+        v-if="$static.settings._rawFooter"
+      />
     </div>
     <div class="totop" @click="toTop()">
       Til toppen &uarr;
@@ -9,8 +13,27 @@
   </footer>
 </template>
 
+<static-query>
+query {
+  metadata {
+    sanityOptions{
+      projectId
+      dataset
+    }
+  }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    _rawFooter
+  }
+}
+</static-query>
+
 <script>
+import BlockContent from '~/components/BlockContent'
+
 export default {
+  components: {
+    BlockContent
+  },
   methods: {
     toTop() {
       window.scrollTo({

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="post">
+    <div class="post" :class="{zoom: zoom}">
       <div class="post-text">
         <h1 class="post-title">{{ $page.post.title }}</h1>
         <blockquote class="definition" v-if="$page.post.definition">{{ $page.post.definition }}</blockquote>
@@ -11,11 +11,12 @@
           v-if="$page.post._rawBody"
         />
       </div>
-      <img
-        v-if="$page.post.mainImage"
-        :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
-        class="post-image"
-      />
+      <div class="post-image" @click="zoom = !zoom">
+        <img
+          v-if="$page.post.mainImage"
+          :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(1200).auto('format').url()"
+        />
+      </div>
     </div>
 
     <Designer v-if="$page.post.designers[0]" :designer="$page.post.designers[0].designer" />
@@ -31,6 +32,11 @@ export default {
   components: {
     Designer,
     BlockContent
+  },
+  data() {
+    return {
+      zoom: false
+    }
   },
   metaInfo() {
     return {
@@ -113,9 +119,32 @@ query Post ($id: ID!) {
   display: grid;
   grid-gap: var(--space);
   grid-template-columns: repeat(10, 1fr);
+  position: relative;
 
   &-image {
     grid-column: 6 / span 5;
+    padding-top: 150%;
+    img {
+      cursor: zoom-in;
+      position: absolute;
+      width: calc(50% - 1rem);
+      right: 0;
+      top: 0;
+      z-index: 1000;
+      transition: all .2s ease-in-out;
+    }
+  }
+
+  &.zoom {
+    .post-image {
+      img {
+        cursor: zoom-out;
+        width: 100%;
+      }
+    }
+    .post-text {
+      padding-top: 320%;
+    }
   }
 
   &-text {
@@ -144,15 +173,10 @@ query Post ($id: ID!) {
 
   blockquote {
     margin: 3rem 0 6rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     padding-left: 2rem;
     border-left: 6px solid crimson;
   }
-}
-
-.definition {
-  max-width: 40rem;
-  font-size: 1.2rem;
 }
 </style>

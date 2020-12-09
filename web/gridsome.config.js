@@ -13,7 +13,7 @@ const clientConfig = require('./client-config')
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  siteName: 'Typografi Illustrert',
+  siteName: 'Typografiske begreper illustrert',
   siteDescription:
     'Et illustrert oppslagsverk med norske typografiske begreper.',
 

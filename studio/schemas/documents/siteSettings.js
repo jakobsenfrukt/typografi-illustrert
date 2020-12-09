@@ -40,6 +40,11 @@ export default {
       name: 'bio',
       type: 'bioPortableText',
       title: 'Bio'
+    },
+    {
+      name: 'footer',
+      type: 'bioPortableText',
+      title: 'Bunntekst (footer)'
     }
   ]
 }

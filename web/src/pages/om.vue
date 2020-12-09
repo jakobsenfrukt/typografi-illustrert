@@ -6,14 +6,14 @@
         v-if="$page.settings._rawDescription"
       />
     </div>
-    <div class="gallery">
-      <div v-for="(image, index) in $page.settings.content" :key="index" class="gallery-image">
+    <VueMasonryWall :items="$page.settings.content" :options="options" class="gallery">
+      <template v-slot:default="{item}">
         <img
-          v-if="image.asset.url"
-          :src="$urlForImage(image, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          v-if="item.asset.url"
+          :src="$urlForImage(item, $page.metadata.sanityOptions).width(600).auto('format').url()"
         />
-      </div>
-    </div>
+      </template>
+    </VueMasonryWall>
     <div class="bio">
       <div class="bio-text">
         <BlockContent
@@ -78,15 +78,29 @@
 import IndexLayout from '~/layouts/Index'
 import PostGrid from '~/components/PostGrid'
 import BlockContent from '~/components/BlockContent'
+import VueMasonryWall from 'vue-masonry-wall';
 
 export default {
   components: {
     IndexLayout,
     PostGrid,
-    BlockContent
+    BlockContent,
+    VueMasonryWall
   },
   metaInfo: {
-    title: 'Om: Typografi Illustrert'
+    title: 'Om: Typografiske begreper illustrert'
+  },
+  data() {
+    return {
+      options: {
+        width: 540,
+        padding: {
+          default: 12,
+          1: 6,
+          2: 8
+        }
+      }
+    }
   }
 }
 </script>
@@ -96,18 +110,12 @@ export default {
 .about-content {
   grid-column: 1 / span 10;
   font-size: 1.4rem;
+  margin: 0 0 var(--space) 0;
 }
 .gallery {
   grid-column: 1 / span 10;
   margin: var(--space) 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: var(--space);
-}
-@media (max-width: $media-m) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 }
 .bio {
   grid-column: 1 / span 10;

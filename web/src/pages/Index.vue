@@ -83,7 +83,7 @@ export default {
     Intro
   },
   metaInfo: {
-    title: 'Typografi Illustrert'
+    title: 'Typografiske begreper illustrert'
   }
 }
 </script>
