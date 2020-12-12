@@ -43,7 +43,7 @@ export default {
     grid-template-columns: repeat(10, 1fr);
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .page {
     padding: 0;
     main {

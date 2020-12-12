@@ -1,13 +1,13 @@
 <template>
   <ul class="post-menu">
-    <li class="heading"><strong>Begreper</strong></li>
-    <li v-for="(post, index) in $static.posts.edges" :key="`term-${index}`">
+    <li class="menu-term-heading heading" @click="openMain = !openMain" :class="{ openMain: openMain }"><strong>Begreper</strong></li>
+    <li v-for="(post, index) in $static.posts.edges" :key="`term-${index}`" class="menu-term-item" :class="{ openMain: openMain }">
       <g-link class="term-link" :to="post.node.slug.current">
         {{ post.node.title }}
       </g-link>
     </li>
-    <li>&nbsp;</li>
-    <li>&nbsp;</li>
+    <li class="menu-spacing">&nbsp;</li>
+    <li class="menu-spacing">&nbsp;</li>
     <li class="menu-designer heading" @click="open = !open" :class="{ open: open }"><strong>Bidragsytere</strong></li>
     <li v-for="(post, index) in $static.posts.edges" :key="`designer-${index}`" class="menu-designer menu-designer-item" :class="{ open: open }">
       <g-link class="term-link" :to="post.node.slug.current">
@@ -42,7 +42,8 @@ query {
 export default {
   data() {
     return {
-      open: false
+      open: false,
+      openMain: false
     }
   }
 }
@@ -87,7 +88,6 @@ export default {
         }
       }
     }
-
     &.menu-designer {
       opacity: .6;
 
@@ -124,15 +124,42 @@ export default {
     }
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .post-menu {
     grid-column: 1 / span 12;
     padding: 0;
+    border-bottom: 1px solid #ddd;
     li {
-      padding: .5rem 2rem;
+      padding: 0 2rem 1rem;
     }
     .menu-designer {
       display: none;
+    }
+    .menu-spacing {
+      display: none;
+    }
+    .menu-term-heading {
+      padding: 0 2rem;
+      cursor: pointer;
+      &:after {
+        content: "▼";
+        font-size: .5rem;
+        vertical-align: middle;
+        line-height: 1.5rem;
+        float: right;
+      }
+      &.openMain {
+        padding-bottom: 1rem;
+        &:after {
+          content: "▲";
+        }
+      }
+    }
+    .menu-term-item {
+      display: none;
+      &.openMain {
+        display: block;
+      }
     }
   }
 }

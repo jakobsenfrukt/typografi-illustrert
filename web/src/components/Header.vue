@@ -103,9 +103,10 @@ query {
     display: none;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
+    padding-bottom: 1rem;
     .about {
       display: none;
     }

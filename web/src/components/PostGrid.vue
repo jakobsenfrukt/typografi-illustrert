@@ -140,7 +140,7 @@ export default {
     }
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .terms {
     padding: 2rem;
     &.showMenu {

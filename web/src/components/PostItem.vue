@@ -73,7 +73,12 @@ export default {
     transform: translateY(-10px);
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
+  .term {
+    grid-column: span 5;
+  }
+}
+@media (max-width: 900px) {
   .term {
     grid-column: span 6;
   }

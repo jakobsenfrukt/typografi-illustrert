@@ -69,6 +69,10 @@ export default {
 
   .totop {
     text-align: right;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
   }
 }
 </style>
