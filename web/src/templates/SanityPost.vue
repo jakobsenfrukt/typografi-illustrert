@@ -44,7 +44,8 @@ export default {
       meta: [
         {
           name: 'description',
-          content: this.$page.post.description
+          key: 'description',
+          content: this.$page.post.definition
         }
       ]
     }

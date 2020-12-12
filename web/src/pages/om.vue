@@ -90,7 +90,12 @@ export default {
     VueMasonryWall
   },
   metaInfo: {
-    title: 'Om: Typografiske begreper illustrert'
+    title: 'Om prosjektet',
+    meta: {
+      name: 'description',
+      key: 'description',
+      content: this.$page.settings.lead
+    }
   },
   data() {
     return {

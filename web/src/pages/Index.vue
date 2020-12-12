@@ -81,9 +81,6 @@ export default {
     IndexLayout,
     PostGrid,
     Intro
-  },
-  metaInfo: {
-    title: 'Typografiske begreper illustrert'
   }
 }
 </script>
