@@ -92,11 +92,13 @@ export default {
   metaInfo() {
     return {
       title: 'Om prosjektet',
-      meta: {
-        name: 'description',
-        key: 'description',
-        content: this.$page.settings.lead
-      }
+      meta: [
+        {
+          name: 'description',
+          key: 'description',
+          content: this.$page.settings.lead
+        }
+      ]
     }
   },
   data() {
