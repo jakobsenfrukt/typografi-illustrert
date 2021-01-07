@@ -67,6 +67,10 @@
       }
     }
   }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    title
+    lead
+  }
 }
 
 </page-query>
@@ -81,6 +85,17 @@ export default {
     IndexLayout,
     PostGrid,
     Intro
+  },
+  metaInfo() {
+    return {
+      meta: [
+        {
+          name: 'description',
+          key: 'description',
+          content: this.$page.settings.lead
+        }
+      ]
+    }
   }
 }
 </script>

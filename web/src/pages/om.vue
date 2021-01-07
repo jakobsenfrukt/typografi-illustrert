@@ -89,12 +89,14 @@ export default {
     BlockContent,
     VueMasonryWall
   },
-  metaInfo: {
-    title: 'Om prosjektet',
-    meta: {
-      name: 'description',
-      key: 'description',
-      content: this.$page.settings.lead
+  metaInfo() {
+    return {
+      title: 'Om prosjektet',
+      meta: {
+        name: 'description',
+        key: 'description',
+        content: this.$page.settings.lead
+      }
     }
   },
   data() {
