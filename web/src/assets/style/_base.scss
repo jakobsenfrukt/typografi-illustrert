@@ -1,6 +1,6 @@
 * {
-	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -10,10 +10,10 @@ html {
 }
 
 body {
- 	background-color: var(--bg-color);
- 	color: var(--body-color);
- 	transition: color .6s, background-color .6s;
- 	font-family: var(--serif);
+  background-color: var(--bg-color);
+  color: var(--body-color);
+  transition: color 0.6s, background-color 0.6s;
+  font-family: var(--serif);
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -25,7 +25,7 @@ a:not(.button) {
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 p {
@@ -37,15 +37,18 @@ p {
   }
 }
 
-h1, h2, h3, h4, h5 {
-  transition: color .6s;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  transition: color 0.6s;
   color: var(--title-color);
   margin: 0 0 1rem;
-  font-family: var(--sans-serif-display);
+  font-family: var(--sans-serif);
   font-weight: 900;
   line-height: 1.15;
 }
-
 
 h1 {
   margin-top: 0;
@@ -57,7 +60,7 @@ ul {
   margin-left: 1.25em;
   margin-bottom: 1.25em;
   li {
-    margin-bottom: .6em;
+    margin-bottom: 0.6em;
   }
 }
 ol {
@@ -65,7 +68,6 @@ ol {
   margin-left: 1.25em;
   margin-bottom: 1.25em;
   li {
-    margin-bottom: .6em;
+    margin-bottom: 0.6em;
   }
 }
-

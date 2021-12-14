@@ -53,7 +53,7 @@ query {
     margin: 0;
     position: relative;
 
-    font-weight: 800;
+    font-weight: 900;
     font-size: 1.6rem;
     span {
       font-family: var(--serif);
@@ -80,14 +80,14 @@ query {
   .about {
     text-align: right;
     font-family: var(--sans-serif);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.3;
     padding-left: 2rem;
     a {
       font-size: 1rem;
       color: rgb(254, 24, 4);
       &:hover {
-        font-weight: 400;
+        font-weight: 600;
         color: #000;
       }
     }
@@ -95,14 +95,14 @@ query {
   .about-mobile {
     text-align: right;
     font-family: var(--sans-serif);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.3;
     padding-left: 2rem;
     a {
       font-size: 1rem;
       color: rgb(254, 24, 4);
       &:hover {
-        font-weight: 400;
+        font-weight: 600;
         color: #000;
       }
     }

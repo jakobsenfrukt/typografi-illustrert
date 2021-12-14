@@ -60,10 +60,10 @@ export default {
     margin: 0 0 .6rem;
     line-height: 1.2;
     font-family: var(--sans-serif);
-    font-weight: 400;
+    font-weight: 600;
     &.heading {
       font-family: var(--sans-serif);
-      font-weight: 700;
+      font-weight: 900;
       margin-bottom: .8rem;
     }
     a {
@@ -76,7 +76,7 @@ export default {
       &:before {
         content: "- ";
         font-family: var(--sans-serif);
-        font-weight: 500;
+        font-weight: 600;
         display: block;
         position: absolute;
         left: 0;
@@ -85,7 +85,7 @@ export default {
         transition: all .2s ease;
       }
       &:hover {
-        font-weight: 400;
+        font-weight: 600;
         opacity: 1;
       }
       /*&:hover {
@@ -109,7 +109,7 @@ export default {
         border-top: 1px solid #aaa;
         padding-top: 1rem;
         font-family: var(--sans-serif);
-        font-weight: 500;
+        font-weight: 900;
         cursor: pointer;
         &:after {
           content: "↓";

@@ -1,22 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url("https://use.typekit.net/vuc8vfa.css");
+@import url('https://use.typekit.net/vuc8vfa.css');
 
 :root {
-  --sans-serif: 'neue-haas-grotesk-text', sans-serif;
-  --sans-serif-display: 'neue-haas-grotesk-display', sans-serif;
+  --sans-serif: 'neue-haas-grotesk-display', sans-serif;
   --serif: 'EB Garamond', serif;
 }
 
 html {
-	--base-font-size: calc(14px + 6 * ((100vw - 320px) / 1600));
+  --base-font-size: calc(14px + 6 * ((100vw - 320px) / 1600));
 }
 
 body {
- 	--bg-color: #fff;
- 	--bg-content-color: #fff;
- 	--body-color: #111;
- 	--title-color: #111;
- 	--border-color:  #ddd;
+  --bg-color: #fff;
+  --bg-content-color: #fff;
+  --body-color: #111;
+  --title-color: #111;
+  --border-color: #ddd;
   --space: 2rem;
   --content-width: 860px;
   --header-height: 80px;
@@ -24,8 +23,8 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-	body {
-		--space: 1rem;
-		--header-height: 60px;
-	}
+  body {
+    --space: 1rem;
+    --header-height: 60px;
+  }
 }

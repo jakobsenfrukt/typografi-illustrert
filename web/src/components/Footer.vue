@@ -53,7 +53,7 @@ export default {
   grid-template-columns: 3fr 1fr;
   align-items: flex-end;
   font-family: var(--sans-serif);
-  font-weight: 400;
+  font-weight: 600;
   font-size: .9rem;
 
   p {
