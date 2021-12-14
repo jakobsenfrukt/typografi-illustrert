@@ -161,6 +161,7 @@ query Post ($id: ID!) {
   }
 
   &-content {
+    font-size: 1.2rem;
     p {
       font-size: 1.2rem;
     }
@@ -174,7 +175,7 @@ query Post ($id: ID!) {
 
   blockquote {
     margin: 3rem 0 6rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.4;
     padding-left: 2rem;
     border-left: 6px solid crimson;

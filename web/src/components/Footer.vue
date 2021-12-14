@@ -52,6 +52,9 @@ export default {
   display: grid;
   grid-template-columns: 3fr 1fr;
   align-items: flex-end;
+  font-family: var(--sans-serif);
+  font-weight: 400;
+  font-size: .9rem;
 
   p {
     max-width: 40rem;
@@ -71,7 +74,6 @@ export default {
     text-align: right;
     &:hover {
       cursor: pointer;
-      font-weight: bold;
     }
   }
 }

@@ -80,25 +80,31 @@ query {
   .about {
     text-align: right;
     font-family: var(--sans-serif);
+    font-weight: 400;
     line-height: 1.3;
     padding-left: 2rem;
     a {
-      font-weight: bold;
-      font-style: normal;
       font-size: 1rem;
       color: rgb(254, 24, 4);
+      &:hover {
+        font-weight: 400;
+        color: #000;
+      }
     }
   }
   .about-mobile {
     text-align: right;
     font-family: var(--sans-serif);
+    font-weight: 400;
     line-height: 1.3;
     padding-left: 2rem;
     a {
-      font-weight: bold;
-      font-style: normal;
       font-size: 1rem;
       color: rgb(254, 24, 4);
+      &:hover {
+        font-weight: 400;
+        color: #000;
+      }
     }
     display: none;
   }

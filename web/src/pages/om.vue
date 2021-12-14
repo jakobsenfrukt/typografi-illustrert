@@ -120,7 +120,7 @@ export default {
 @import '@/assets/style/_variables.scss';
 .about-content {
   grid-column: 1 / span 10;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin: 0 0 var(--space) 0;
 }
 .gallery {

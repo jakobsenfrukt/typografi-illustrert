@@ -1,6 +1,6 @@
 <template>
   <ul class="post-menu">
-    <li class="menu-term-heading heading" @click="openMain = !openMain" :class="{ openMain: openMain }"><strong>Begreper</strong></li>
+    <li class="menu-term-heading heading" @click="openMain = !openMain" :class="{ openMain: openMain }">Begreper</li>
     <li v-for="(post, index) in $static.posts.edges" :key="`term-${index}`" class="menu-term-item" :class="{ openMain: openMain }">
       <g-link class="term-link" :to="post.node.slug.current">
         {{ post.node.title }}
@@ -59,11 +59,16 @@ export default {
   li {
     margin: 0 0 .6rem;
     line-height: 1.2;
+    font-family: var(--sans-serif);
+    font-weight: 400;
     &.heading {
       font-family: var(--sans-serif);
+      font-weight: 700;
       margin-bottom: .8rem;
     }
     a {
+      font-size: .9rem;
+      opacity: .5;
       text-decoration: none;
       display: block;
       position: relative;
@@ -71,6 +76,7 @@ export default {
       &:before {
         content: "- ";
         font-family: var(--sans-serif);
+        font-weight: 500;
         display: block;
         position: absolute;
         left: 0;
@@ -79,6 +85,10 @@ export default {
         transition: all .2s ease;
       }
       &:hover {
+        font-weight: 400;
+        opacity: 1;
+      }
+      /*&:hover {
         padding-left: .8rem;
         font-weight: 700;
         &:before {
@@ -86,10 +96,10 @@ export default {
           transform: translateX(0);
           font-weight: 300;
         }
-      }
+      }*/
     }
     &.menu-designer {
-      opacity: .6;
+      opacity: .5;
 
       &.open {
         opacity: .8;
@@ -99,17 +109,18 @@ export default {
         border-top: 1px solid #aaa;
         padding-top: 1rem;
         font-family: var(--sans-serif);
+        font-weight: 500;
         cursor: pointer;
         &:after {
-          content: "▼";
-          font-size: .5rem;
+          content: "↓";
+          font-size: .8rem;
           vertical-align: middle;
           line-height: 1.5rem;
           float: right;
         }
         &.open {
           &:after {
-            content: "▲";
+            content: "↑";
           }
         }
       }
