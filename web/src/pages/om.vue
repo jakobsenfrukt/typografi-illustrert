@@ -23,13 +23,13 @@
           v-if="$page.settings._rawBio"
         />
       </div>
-      <figure class="bio-image">
+      <!--<figure class="bio-image">
         <img
           v-if="$page.settings.portrait"
           :src="$urlForImage($page.settings.portrait, $page.metadata.sanityOptions).width(600).auto('format').url()"
         />
         <figcaption>Foto: {{$page.settings.portrait.credit}}</figcaption>
-      </figure>
+      </figure>-->
     </div>
   </IndexLayout>
 </template>

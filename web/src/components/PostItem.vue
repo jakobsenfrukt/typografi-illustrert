@@ -35,7 +35,6 @@ export default {
   grid-column: span 3;
 
   &-header {
-    overflow: hidden;
 
     &:empty {
       display: none;
@@ -44,6 +43,7 @@ export default {
 
   &-image {
     min-width: 100%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
   }
 
   &-title {

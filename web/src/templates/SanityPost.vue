@@ -133,6 +133,7 @@ query Post ($id: ID!) {
       top: 0;
       z-index: 1000;
       transition: all .2s ease-in-out;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .2);
     }
   }
 
