@@ -75,7 +75,7 @@ export default {
 }
 @media (max-width: 1300px) {
   .term {
-    grid-column: span 5;
+    grid-column: span 4;
   }
 }
 @media (max-width: 900px) {

@@ -125,7 +125,7 @@ export default {
     border: none;
     .posters {
       grid-column: 1 / span 10;
-      grid-template-columns: repeat(10, 1fr);
+      grid-template-columns: repeat(9, 1fr);
     }
   }
 
@@ -137,6 +137,28 @@ export default {
 
     h2 {
       margin: 0;
+    }
+    .show-all {
+      font-family: var(--sans-serif);
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .terms {
+    padding: 2rem;
+    .posters {
+      grid-column: 1 / span 12;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    &.showMenu {
+      padding: 0 0 4rem;
+      grid-column: 1 / span 12;
+      grid-template-columns: repeat(12, 1fr);
+      border: none;
+      .posters {
+        grid-column: 1 / span 12;
+        grid-template-columns: repeat(8, 1fr);
+      }
     }
   }
 }

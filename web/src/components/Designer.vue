@@ -16,7 +16,7 @@ export default {
 <style lang="scss">
 .designer {
   grid-column: 1 / span 10;
-  padding: 2rem 0;
+  padding: 2rem 0 4rem;
   opacity: .8;
 
   &-name {

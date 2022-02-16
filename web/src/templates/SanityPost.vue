@@ -16,6 +16,7 @@
           v-if="$page.post.mainImage"
           :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(1200).auto('format').url()"
         />
+        <div class="zoom-text">Klikk for å forstørre</div>
       </div>
     </div>
 
@@ -124,7 +125,7 @@ query Post ($id: ID!) {
 
   &-image {
     grid-column: 6 / span 5;
-    padding-top: 150%;
+    padding-top: 145%;
     img {
       cursor: zoom-in;
       position: absolute;
@@ -145,7 +146,17 @@ query Post ($id: ID!) {
       }
     }
     .post-text {
-      padding-top: 320%;
+      padding-top: 310%;
+    }
+  }
+  .zoom-text {
+    text-align: right;
+    opacity: .6;
+    cursor: zoom-in;
+    &:after {
+      content: "🔍";
+      display: inline-block;
+      margin-left: .5rem;
     }
   }
 
@@ -175,7 +186,7 @@ query Post ($id: ID!) {
   }
 
   blockquote {
-    margin: 3rem 0 6rem;
+    margin: 4rem 0 5rem;
     font-size: 1.4rem;
     line-height: 1.4;
     padding-left: 2rem;
