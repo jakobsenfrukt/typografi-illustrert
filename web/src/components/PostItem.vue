@@ -81,6 +81,13 @@ export default {
 @media (max-width: 900px) {
   .term {
     grid-column: span 6;
+    &-title {
+      font-size: 1.4rem;
+    }
+    &-designer {
+      line-height: 1.2;
+      margin-bottom: .4rem;
+    }
   }
 }
 </style>

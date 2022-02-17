@@ -210,6 +210,9 @@ query Post ($id: ID!) {
       grid-column: span 1;
       order: 2;
     }
+    &-title {
+      font-size: 2rem;
+    }
     &.zoom {
       .post-image {
         img {

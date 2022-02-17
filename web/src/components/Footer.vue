@@ -77,4 +77,12 @@ export default {
     }
   }
 }
+@media (max-width: 800px) {
+  .site-footer {
+    display: block;
+    .totop {
+      margin-top: 4rem;
+    }
+  }
+}
 </style>

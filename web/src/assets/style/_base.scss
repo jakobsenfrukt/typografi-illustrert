@@ -18,6 +18,7 @@ body {
   padding: 0;
   line-height: 1.6;
   font-weight: 300;
+  overflow-x: hidden;
 }
 
 a:not(.button) {
@@ -69,5 +70,13 @@ ol {
   margin-bottom: 1.25em;
   li {
     margin-bottom: 0.6em;
+  }
+}
+
+@media (max-width: 800px) {
+  p {
+    + p {
+      text-indent: 1.4em;
+    }
   }
 }
