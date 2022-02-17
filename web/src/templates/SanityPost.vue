@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout :current="$page.post._id">
     <div class="post" :class="{zoom: zoom}">
       <div class="post-text">
         <h1 class="post-title">{{ $page.post.title }}</h1>
@@ -63,6 +63,7 @@ query Post ($id: ID!) {
     }
   }
   post: sanityPost (id: $id) {
+    _id
     title
     publishedAt (format: "D. MMMM YYYY")
     lead

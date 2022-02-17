@@ -94,18 +94,17 @@ export default {
       type: Number,
       default: 100
     },
-    showMenu: Boolean
+    showMenu: Boolean,
+    current: String
   },
   components: {
     PostItem
   },
   methods: {
     shuffle(array) {
-      for (var i = array.length - 1; i > 0; i--) {
-        var rand = Math.floor(Math.random() * (i + 1));
-        [array[i], array[rand]] = [array[rand], array[i]]
-      }
       return array
+        .filter(item => item.node.id != this.current)
+        .sort(() => Math.random() - Math.random())
     }
   }
 }

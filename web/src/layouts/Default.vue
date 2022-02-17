@@ -7,7 +7,7 @@
         <slot />
       </main>
     </div>
-    <PostGrid limit="4" />
+    <PostGrid :limit="4" :current="current" />
     <Footer />
   </div>
 </template>
@@ -24,6 +24,9 @@ export default {
     PostMenu,
     PostGrid,
     Footer
+  },
+  props: {
+    current: String
   }
 }
 </script>
