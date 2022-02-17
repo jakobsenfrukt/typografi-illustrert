@@ -7,7 +7,7 @@
         <slot />
       </main>
     </div>
-    <PostGrid :limit="parseInt(4)" />
+    <PostGrid limit="4" />
     <Footer />
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script>
 import Header from '~/components/Header'
 import PostMenu from '~/components/PostMenu'
-import PostGrid from '~/components/PostGrid'
+import PostGrid from '~/components/RelatedPostGrid'
 import Footer from '~/components/Footer'
 
 export default {
@@ -48,6 +48,7 @@ export default {
     padding: 0;
     main {
       padding: 2rem;
+      grid-column: span 12;
     }
   }
 }

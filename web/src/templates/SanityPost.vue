@@ -168,7 +168,7 @@ query Post ($id: ID!) {
     display: none;
   }
   &-title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 900;
   }
 
@@ -219,6 +219,9 @@ query Post ($id: ID!) {
       .post-text {
         padding-top: 0;
       }
+    }
+    .zoom-text {
+      display: none;
     }
   }
 }
